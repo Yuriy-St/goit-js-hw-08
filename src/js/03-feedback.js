@@ -1,8 +1,8 @@
 import lodash from 'lodash';
 
 const formEl = document.querySelector('.feedback-form');
-const emailEl = formEl.elements['email'];
-const messageEl = formEl.elements['message'];
+const emailEl = formEl.elements.email;
+const messageEl = formEl.elements.message;
 
 let currentValues;
 const savedValues = localStorage.getItem('feedback-form-state');
