@@ -1,5 +1,5 @@
-import simpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css'
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
@@ -17,7 +17,7 @@ galleryEl.innerHTML = galleryItems.reduce((htmlGallery, item) => {
   );
 }, '');
 
-const lightbox = new simpleLightbox(`.gallery a`, {
+const lightbox = new SimpleLightbox(`.gallery a`, {
   captionsData: 'alt',
   captionDelay: 250,
 });
