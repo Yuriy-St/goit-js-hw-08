@@ -5,7 +5,8 @@ const emailEl = formEl.elements.email;
 const messageEl = formEl.elements.message;
 
 let currentValues;
-const savedValues = localStorage.getItem('feedback-form-state');
+const formKey = 'feedback-form-state';
+const savedValues = localStorage.getItem(formKey);
 
 if (savedValues) {
   try {
@@ -16,7 +17,7 @@ if (savedValues) {
     console.error(e);
   }
 } else {
-  formClear();
+  formEl.reset();
 }
 
 formEl.addEventListener('input', lodash.throttle(onInput, 500));
@@ -28,17 +29,12 @@ function onInput() {
     message: messageEl.value,
   };
 
-  localStorage.setItem('feedback-form-state', JSON.stringify(currentValues));
+  localStorage.setItem(formKey, JSON.stringify(currentValues));
 }
 
 function onSubmit(event) {
   event.preventDefault();
   console.log(currentValues);
-  formClear();
-  localStorage.removeItem('feedback-form-state');
-}
-
-function formClear() {
-  emailEl.value = '';
-  messageEl.value = '';
+  formEl.reset();
+  localStorage.removeItem(formKey);
 }
